@@ -24,6 +24,8 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   page_transition: ^1.1.0
+  flutter_swiper : ^1.1.4
+
 
 dev_dependencies:
   flutter_test:
@@ -51,6 +53,11 @@ flutter:
       - assets/authentication_background.png
       - assets/google_icon.png
       - assets/facebook_icon.png
+      - assets/chair1.png
+      - assets/chair2.png
+      - assets/chair3.png
+      - assets/sofa.png
+      - assets/banner.png
 
   fonts:
     - family: Avenir
