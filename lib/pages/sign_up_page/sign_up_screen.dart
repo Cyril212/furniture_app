@@ -162,7 +162,9 @@ class SignUpScreenState extends State<SignUpScreen> {
                               size: 30,
                             ),
                             backgroundColor: Color.fromRGBO(208, 2, 27, 1),
-                            onPressed: () => {},
+                            onPressed: () {
+                              Navigator.pushNamed(context, "/onboarding");
+                            }
                           ))),
                   Align(
                       alignment: Alignment(0.0,0.8),

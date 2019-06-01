@@ -106,7 +106,7 @@ class LoginScreenState extends State<LoginScreen> {
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height / 27,
                   child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20.0),
+                      padding: EdgeInsets.symmetric(horizontal: 25.0),
                       child: Align(
                           alignment: Alignment.centerRight,
                           child: GestureDetector(
@@ -115,7 +115,7 @@ class LoginScreenState extends State<LoginScreen> {
                               },child:Text(
                             "Forgot your password?",
                             style:
-                                TextStyle(fontFamily: 'Avenir', fontSize: 17),
+                                TextStyle(fontFamily: 'Avenir', fontSize: MediaQuery.of(context).size.height/40),
                           ))))),
               SizedBox(
                 width: MediaQuery.of(context).size.width,

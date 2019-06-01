@@ -25,6 +25,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   page_transition: ^1.1.0
   flutter_swiper : ^1.1.4
+  dots_indicator: ^0.0.4
 
 
 dev_dependencies:
@@ -56,8 +57,14 @@ flutter:
       - assets/chair1.png
       - assets/chair2.png
       - assets/chair3.png
+      - assets/chair4.png
       - assets/sofa.png
       - assets/banner.png
+      - assets/slide1.png
+      - assets/slide2.png
+      - assets/slide3.png
+      - assets/couch.png
+      - assets/available_color.png
 
   fonts:
     - family: Avenir

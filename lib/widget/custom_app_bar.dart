@@ -1,101 +1,109 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter/src/rendering/sliver_persistent_header.dart';
 
-class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
+class CustomAppBar extends SliverPersistentHeaderDelegate {
 
-  final double height;
-
+  double height;
   CustomAppBar({this.height});
 
   @override
-  State<StatefulWidget> createState() => new CustomAppBarState();
-
-  @override
-  // TODO: implement preferredSize
-  Size get preferredSize => Size.fromHeight(height);
-
-}
-class CustomAppBarState extends State<CustomAppBar> {
-
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return new Container(color:Colors.transparent,child:
-    LayoutBuilder(builder: (context, constraint) {
-        return Stack(fit: StackFit.loose, children: <Widget>[
-          Container(
-            color: Colors.transparent,
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-              child:CustomPaint(
-                willChange: false,
-                painter:
-                CustomToolbarShape(lineColor: Colors.deepOrange),
-              )),
-          Align(
-              alignment: Alignment(0.0, 1.25),
-              child: Container(
-                  height: MediaQuery.of(context).size.height / 14.5,
-                  padding: EdgeInsets.only(left: 30, right: 30),
-                  child: Container(
-                      decoration: new BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            blurRadius: 20.0,
-                            // has the effect of softening the shadow
-                            spreadRadius: .5,
-                            // has the effect of extending the shadow
-                            offset: Offset(
-                              0.0, // horizontal, move right 10
-                              5.0, // vertical, move down 10
-                            ),
-                          )
-                        ],
-                      ),
-                      child: TextField(
-                          decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Colors.white,
-                              prefixIcon: Icon(
-                                Icons.search,
-                                color: Colors.black38,
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return new Container(
+        color: Colors.transparent,
+        child: LayoutBuilder(builder: (context, constraint) {
+          return Stack(fit: StackFit.loose, children: <Widget>[
+            Container(
+                color: Colors.transparent,
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                child: CustomPaint(
+                  willChange: false,
+                  painter: CustomToolbarShape(lineColor: Colors.deepOrange),
+                )),
+            Align(
+                alignment: Alignment(0.0, 1.25),
+                child: Container(
+                    height: MediaQuery.of(context).size.height / 14.5,
+                    padding: EdgeInsets.only(left: 30, right: 30),
+                    child: Container(
+                        decoration: new BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black12,
+                              blurRadius: 20.0,
+                              // has the effect of softening the shadow
+                              spreadRadius: .5,
+                              // has the effect of extending the shadow
+                              offset: Offset(
+                                0.0,
+                                5.0,
                               ),
-                              focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      color: Colors.white, width: 1),
-                                  borderRadius:
-                                  BorderRadius.circular(25)),
-                              enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      color: Colors.white, width: 1),
-                                  borderRadius:
-                                  BorderRadius.circular(25))))))),
-          Align(
-              alignment: Alignment(0.9, 0.0),
-              child: Container(
-                  height: MediaQuery.of(context).size.height / 13,
-                  width: MediaQuery.of(context).size.width / 13,
-                  child: Icon(
-                    Icons.local_mall,
-                    color: Colors.black,
-                  ))),
-          Align(
-              alignment: Alignment(-0.9, 0.0),
-              child: Container(
-                  height: MediaQuery.of(context).size.height / 13,
-                  width: MediaQuery.of(context).size.width / 13,
-                  child: Icon(
-                    Icons.menu,
-                    color: Colors.black,
-                  ))),
-        ]);}));
+                            )
+                          ],
+                        ),
+                        child: TextField(
+                            onSubmitted:(submittedText){
+                              if(submittedText.isNotEmpty){
+                                Navigator.of(context).pushNamed("/search");
+                              }
+                            },
+                            decoration: InputDecoration(
+                                filled: true,
+                                fillColor: Colors.white,
+                                prefixIcon: Icon(
+                                  Icons.search,
+                                  color: Colors.black38,
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: Colors.white, width: 1),
+                                    borderRadius: BorderRadius.circular(25)),
+                                enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: Colors.white, width: 1),
+                                    borderRadius:
+                                        BorderRadius.circular(25))))))),
+            Align(
+                alignment: Alignment(0.9, 0.0),
+                child: Container(
+                    height: MediaQuery.of(context).size.height / 13,
+                    width: MediaQuery.of(context).size.width / 13,
+                    child: Icon(
+                      Icons.local_mall,
+                      color: Colors.black,
+                    ))),
+            Align(
+                alignment: Alignment(-0.9, 0.0),
+                child: Container(
+                    height: MediaQuery.of(context).size.height / 13,
+                    width: MediaQuery.of(context).size.width / 13,
+                    child: InkWell(
+                      onTap:(){
+                        Scaffold.of(context).openDrawer();
+                      },
+                        child:Icon(
+                      Icons.menu,
+                      color: Colors.black,
+                    )))),
+          ]);
+        }));
   }
 
+  @override
+  double get maxExtent => height;
+
+  @override
+  double get minExtent => height;
+
+  @override
+  bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) {
+    return false;
+  }
 }
 
 class CustomToolbarShape extends CustomPainter {
-  Color lineColor;
+  final Color lineColor;
 
   CustomToolbarShape({this.lineColor});
 
@@ -133,8 +141,7 @@ class CustomToolbarShape extends CustomPainter {
 
     canvas.drawPath(path, paint);
 
-//Second oval
-
+    //Second oval
     Rect secondOvalRect = new Rect.fromPoints(
       Offset(-size.width / 2.5, -size.height),
       Offset(size.width * 1.4, size.height / 1.5),
@@ -206,31 +213,4 @@ class CustomToolbarShape extends CustomPainter {
   bool shouldRepaint(CustomPainter oldDelegate) {
     return true;
   }
-
-}
-
-class BottomWaveClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    var path = Path();
-
-/*Rectangle*/
-    path.lineTo(0, 0);
-    path.lineTo(0, size.height);
-    path.lineTo(size.width, size.height);
-    path.lineTo(size.width, 0);
-
-    path.moveTo(size.width - 1, 0);
-
-    path.quadraticBezierTo(
-        size.width - 70, size.height / 2, 0, size.height / 3);
-    path.lineTo(0, 0);
-
-    path.close();
-
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) => true;
 }

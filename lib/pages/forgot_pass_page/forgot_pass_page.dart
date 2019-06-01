@@ -51,7 +51,7 @@ class ForgotPassScreenState extends State<ForgotPassScreen> {
                       "Forgot Password",
                       style: TextStyle(
                           fontFamily: 'Avenir',
-                          fontSize: 28,
+                          fontSize: MediaQuery.of(context).size.width / 13,
                           fontWeight: FontWeight.bold),
                     ))),
             SizedBox(
