@@ -9,14 +9,10 @@ class LoginScreen extends StatefulWidget {
 }
 
 class LoginScreenState extends State<LoginScreen> {
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+
     return new Scaffold(
       backgroundColor: Color.fromRGBO(255, 255, 255, 1.0),
       body: Container(
@@ -31,13 +27,15 @@ class LoginScreenState extends State<LoginScreen> {
               SizedBox(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height / 20,
-                child: IconButton(
-                    padding: EdgeInsets.all(15.0),
-                    alignment: Alignment.centerLeft,
-                    icon: Icon(Icons.close, size: 30, color: Colors.black),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    }),
+                child: Container(
+                  alignment: Alignment.centerLeft,
+                  child: IconButton(
+                      padding: EdgeInsets.all(15.0),
+                      icon: Icon(Icons.close, size: 30, color: Colors.black),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      }),
+                ),
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width,
@@ -203,19 +201,6 @@ class LoginScreenState extends State<LoginScreen> {
     );
   }
 }
-
-//class ShapesPainter extends CustomPainter {
-//  @override
-//  void paint(Canvas canvas, Size size) {
-//    canvas.drawRect(
-//      new Rect.fromLTRB(0.0, 0.0, size.height,size.width),
-//      new Paint()..color = Color.fromRGBO(242, 243, 244, 100),
-//    );
-//  }
-//
-//  @override
-//  bool shouldRepaint(CustomPainter oldDelegate) => false;
-//}
 
 class BottomWaveClipper extends CustomClipper<Path> {
   @override

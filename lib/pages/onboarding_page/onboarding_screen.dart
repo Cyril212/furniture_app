@@ -93,7 +93,7 @@ class OnboardingScreenState extends State<OnboardingScreen> {
                             alignment: Alignment.center,
                             child: Align(
                               alignment: Alignment(0, 0.65),
-                              child: Text("Work is better than sex",
+                              child: Text("Work is better than anything",
                                   style: TextStyle(
                                       fontFamily: 'Avenir',
                                       fontSize:
@@ -125,7 +125,7 @@ class OnboardingScreenState extends State<OnboardingScreen> {
                             alignment: Alignment.center,
                             child: Align(
                               alignment: Alignment(0, 0.65),
-                              child: Text("Work is better than sex",
+                              child: Text("Work is better than anything",
                                   style: TextStyle(
                                       fontFamily: 'Avenir',
                                       fontSize:
@@ -157,7 +157,7 @@ class OnboardingScreenState extends State<OnboardingScreen> {
                             alignment: Alignment.center,
                             child: Align(
                               alignment: Alignment(0, 0.65),
-                              child: Text("Work is better than sex",
+                              child: Text("Work is better than anything",
                                   style: TextStyle(
                                       fontFamily: 'Avenir',
                                       fontSize:
@@ -211,6 +211,7 @@ class OnboardingScreenState extends State<OnboardingScreen> {
                       )),
                   onPressed: () {
                     onLeftSwipe();
+
                   },
                 )),
           ],

@@ -10,11 +10,6 @@ class ForgotPassScreen extends StatefulWidget {
 
 class ForgotPassScreenState extends State<ForgotPassScreen> {
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return new Scaffold(
@@ -30,13 +25,15 @@ class ForgotPassScreenState extends State<ForgotPassScreen> {
             SizedBox(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height / 20,
-              child: IconButton(
-                  padding: EdgeInsets.all(15.0),
-                  alignment: Alignment.centerLeft,
-                  icon: Icon(Icons.close, size: 30, color: Colors.black),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  }),
+              child: Container(
+                alignment: Alignment.centerLeft,
+                child: IconButton(
+                    padding: EdgeInsets.all(15.0),
+                    icon: Icon(Icons.close, size: 30, color: Colors.black),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    }),
+              ),
             ),
             SizedBox(
               width: MediaQuery.of(context).size.width,
@@ -119,7 +116,6 @@ class ShapesPainter extends CustomPainter {
       new Paint()..color = Color.fromRGBO(242, 243, 244, 100),
     );
   }
-
   @override
   bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
@@ -128,14 +124,13 @@ class BottomWaveClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     var path = Path();
-
-/*Rectangle*/
+    /*Rectangle*/
     path.lineTo(0, 0);
     path.lineTo(0, size.height);
     path.lineTo(size.width, size.height);
     path.lineTo(size.width, 0);
 
-    path.moveTo(size.width - 1, 0);
+    path.moveTo(size.width, 0);
 
     path.quadraticBezierTo(
         size.width - 70, size.height / 2, 0, size.height / 3);

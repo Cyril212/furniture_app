@@ -11,25 +11,16 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class DashboardScreenState extends State<DashboardScreen> {
-
-  @override
-  void initState() {
-    super.initState();
-
-  }
-
   ///
   ///New Product Item
   ///
   Widget productItem(BuildContext context, String assetPath) => Container(
-          margin: EdgeInsets.only(top: MediaQuery.of(context).size.height / 30),
           height: MediaQuery.of(context).size.height / 5.7,
           width: MediaQuery.of(context).size.width,
           alignment: Alignment.bottomCenter,
           // where to position the child
           child: Stack(overflow: Overflow.visible, children: <Widget>[
             Container(
-                padding: EdgeInsets.symmetric(horizontal: 10),
                 height: MediaQuery.of(context).size.height / 6.3,
                 width: MediaQuery.of(context).size.width,
                 alignment: Alignment.center,
@@ -44,16 +35,17 @@ class DashboardScreenState extends State<DashboardScreen> {
                       alignment: Alignment.center,
                       child: Row(
                         children: <Widget>[
-                          Expanded(
-                            flex: 1,
+                          SizedBox(width: MediaQuery.of(context).size.width/3.4,
+                          child:FractionalTranslation(
+                              translation: Offset(0.1,-0.15),
+                              child: Image.asset(
+                                assetPath,
+                                height: (MediaQuery.of(context).size.height / MediaQuery.of(context).size.width) * 80,
+                              )), ),
+                          Container(
+                            margin: EdgeInsets.only(left:MediaQuery.of(context).size.width/17),
+                            width: MediaQuery.of(context).size.width/1.7,
                             child: Container(
-                                //            color: Colors.red,
-                                ),
-                          ),
-                          Expanded(
-                            flex: 2,
-                            child: Container(
-                              //         color: Colors.green,
                               child: Column(
                                 children: <Widget>[
                                   Container(
@@ -67,37 +59,39 @@ class DashboardScreenState extends State<DashboardScreen> {
                                             fontFamily: 'Avenir',
                                             fontSize: MediaQuery.of(context)
                                                     .size
-                                                    .height /
-                                                51,
+                                                    .width /
+                                                27,
                                             fontWeight: FontWeight.bold)),
                                   ),
                                   Container(
-                                    margin: EdgeInsets.only(top: 6),
+                                    margin: EdgeInsets.only(top: MediaQuery.of(context).size.width /
+                                        45),
                                     child: Text(
                                         "Buy products related to lazy boy chair products and see what customers....",
-                                        textAlign: TextAlign.left,
+                                        textAlign: TextAlign.start,
                                         style: TextStyle(
                                           color: Colors.black26,
                                           fontFamily: 'Avenir',
                                           fontSize: MediaQuery.of(context)
                                                   .size
-                                                  .height /
-                                              56,
+                                                  .width /
+                                              30,
                                         )),
                                   ),
                                   Container(
                                     alignment: Alignment.centerLeft,
-                                    margin: EdgeInsets.only(top: 3),
+                                    margin: EdgeInsets.only(top: MediaQuery.of(context).size.width /
+                                        47),
                                     child: Text("\$800",
-                                        textAlign: TextAlign.left,
+                                        textAlign: TextAlign.start,
                                         style: TextStyle(
                                             fontFamily: 'Avenir',
                                             fontSize: MediaQuery.of(context)
                                                     .size
-                                                    .height /
-                                                52,
+                                                    .width /
+                                                28,
                                             fontWeight: FontWeight.bold,
-                                            color: Colors.black26)),
+                                            color: Colors.black38)),
                                   ),
                                 ],
                               ),
@@ -105,12 +99,6 @@ class DashboardScreenState extends State<DashboardScreen> {
                           )
                         ],
                       ))),
-                )),
-            Align(
-                alignment: Alignment(-0.82, -1.3),
-                child: Image.asset(
-                  "assets/chair4.png",
-                  height: MediaQuery.of(context).size.height / 7,
                 )),
           ]));
 
@@ -271,17 +259,17 @@ class DashboardScreenState extends State<DashboardScreen> {
               ],
             ),
           ),
-          Expanded(
+          SizedBox(
+            width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height/5.5,
               child: Hero(
-                transitionOnUserGestures:true,
                 tag:"furniture_item",
                 child: ListView(
-                    padding: EdgeInsets.symmetric(horizontal: 5),
                     scrollDirection: Axis.horizontal,
                     children: <Widget>[
-                  productItem(context, "assets/chair4.png"),
-                  productItem(context, "assets/chair4.png"),
-                ]),
+                      productItem(context, "assets/chair4.png"),
+                      productItem(context, "assets/chair4.png"),
+                    ]),
               ))
         ])));
 
@@ -299,12 +287,14 @@ class DashboardScreenState extends State<DashboardScreen> {
           ),
         )),
         backgroundColor: Colors.white,
-        body: new CustomScrollView(slivers: <Widget>[
+        body: new CustomScrollView(
+            slivers: <Widget>[
           SliverPersistentHeader(
-              pinned: true,
+            pinned:true,
+              floating: true,
               delegate:
                   CustomAppBar(height: MediaQuery.of(context).size.height / 6)),
-          new SliverList(delegate: SliverChildListDelegate(buildBody()))
+          new SliverList(delegate: SliverChildListDelegate(buildBody())),
         ]));
   }
 }

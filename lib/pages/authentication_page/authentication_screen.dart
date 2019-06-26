@@ -25,12 +25,10 @@ class AuthenticationScreenState extends State<AuthenticationScreen>
     _controller.forward();
   }
 
-
   @override
   void dispose() {
-   super.dispose();
-   _controller.dispose();
-   this.dispose();
+    super.dispose();
+    _controller.dispose();
   }
 
   @override
@@ -54,14 +52,14 @@ class AuthenticationScreenState extends State<AuthenticationScreen>
                   height: MediaQuery.of(context).size.height / 6,
                 ),
                 SizedBox(
-                    child:  FadeTransition(
-                        opacity:
-                        _controller.drive(CurveTween(curve: Curves.easeOut)),
-                        child:Image.asset(
-                  "assets/logo.png",
-                  scale: 2.2,
-                  alignment: Alignment.center,
-                ))),
+                    child: FadeTransition(
+                        opacity: _controller
+                            .drive(CurveTween(curve: Curves.easeOut)),
+                        child: Image.asset(
+                          "assets/logo.png",
+                          scale: 2.2,
+                          alignment: Alignment.center,
+                        ))),
                 SizedBox(
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height / 1.8,
@@ -90,25 +88,25 @@ class AuthenticationScreenState extends State<AuthenticationScreen>
                   height: MediaQuery.of(context).size.height / 40,
                 ),
                 SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.8,
-                  height: MediaQuery.of(context).size.height / 15,
-                  child: FadeTransition(
-                    opacity:
-                    _controller.drive(CurveTween(curve: Curves.easeOut)),
-                    child:MaterialButton(
-                    color: Color.fromRGBO(208, 2, 27, 1),
-                    shape: OutlineInputBorder(
-                        borderSide:
-                            BorderSide(color: Color.fromRGBO(208, 2, 27, 1))),
-                    child: Text(
-                      'LOGIN',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    onPressed: () {
-                      Navigator.pushNamed(context, "/login");
-                    },
-                  ),
-                )),
+                    width: MediaQuery.of(context).size.width * 0.8,
+                    height: MediaQuery.of(context).size.height / 15,
+                    child: FadeTransition(
+                      opacity:
+                          _controller.drive(CurveTween(curve: Curves.easeOut)),
+                      child: MaterialButton(
+                        color: Color.fromRGBO(208, 2, 27, 1),
+                        shape: OutlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Color.fromRGBO(208, 2, 27, 1))),
+                        child: Text(
+                          'LOGIN',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        onPressed: () {
+                          Navigator.pushNamed(context, "/login");
+                        },
+                      ),
+                    )),
               ],
             )),
       ) /* add child content here */,

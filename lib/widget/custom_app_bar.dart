@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/rendering/sliver_persistent_header.dart';
 
 class CustomAppBar extends SliverPersistentHeaderDelegate {
-
   double height;
+
   CustomAppBar({this.height});
 
   @override
@@ -11,15 +11,16 @@ class CustomAppBar extends SliverPersistentHeaderDelegate {
       BuildContext context, double shrinkOffset, bool overlapsContent) {
     return new Container(
         color: Colors.transparent,
-        child: LayoutBuilder(builder: (context, constraint) {
-          return Stack(fit: StackFit.loose, children: <Widget>[
+        child: Stack(fit: StackFit.loose, children: <Widget>[
             Container(
                 color: Colors.transparent,
                 width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height,
-                child: CustomPaint(
-                  willChange: false,
-                  painter: CustomToolbarShape(lineColor: Colors.deepOrange),
+                height: height,
+                child: ClipPath(
+                  clipper: BottomWaveClipper(),
+                  child: CustomPaint(
+                    painter: CustomToolbarShape(lineColor: Colors.deepOrange),
+                  ),
                 )),
             Align(
                 alignment: Alignment(0.0, 1.25),
@@ -43,8 +44,8 @@ class CustomAppBar extends SliverPersistentHeaderDelegate {
                           ],
                         ),
                         child: TextField(
-                            onSubmitted:(submittedText){
-                              if(submittedText.isNotEmpty){
+                            onSubmitted: (submittedText) {
+                              if (submittedText.isNotEmpty) {
                                 Navigator.of(context).pushNamed("/search");
                               }
                             },
@@ -69,9 +70,14 @@ class CustomAppBar extends SliverPersistentHeaderDelegate {
                 child: Container(
                     height: MediaQuery.of(context).size.height / 13,
                     width: MediaQuery.of(context).size.width / 13,
-                    child: Icon(
-                      Icons.local_mall,
-                      color: Colors.black,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.of(context).pushNamed("/shopping_cart");
+                      },
+                      child: Icon(
+                        Icons.local_mall,
+                        color: Colors.black,
+                      ),
                     ))),
             Align(
                 alignment: Alignment(-0.9, 0.0),
@@ -79,15 +85,15 @@ class CustomAppBar extends SliverPersistentHeaderDelegate {
                     height: MediaQuery.of(context).size.height / 13,
                     width: MediaQuery.of(context).size.width / 13,
                     child: InkWell(
-                      onTap:(){
-                        Scaffold.of(context).openDrawer();
-                      },
-                        child:Icon(
-                      Icons.menu,
-                      color: Colors.black,
-                    )))),
-          ]);
-        }));
+                        onTap: () {
+                          Scaffold.of(context).openDrawer();
+                        },
+                        child: Icon(
+                          Icons.menu,
+                          color: Colors.black,
+                        )))),
+          ])
+        );
   }
 
   @override
@@ -98,7 +104,7 @@ class CustomAppBar extends SliverPersistentHeaderDelegate {
 
   @override
   bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) {
-    return false;
+    return true;
   }
 }
 
@@ -110,11 +116,12 @@ class CustomToolbarShape extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint();
-//First oval
+
+    //First oval
     Path path = Path();
     Rect pathGradientRect = new Rect.fromCircle(
       center: new Offset(size.width / 4, 0),
-      radius: 270,
+      radius: size.width/1.4,
     );
 
     Gradient gradient = new LinearGradient(
@@ -188,7 +195,7 @@ class CustomToolbarShape extends CustomPainter {
 
     //Fourth oval
     Rect fourthOvalRect = new Rect.fromPoints(
-      Offset(-size.width / 2.4, -200),
+      Offset(-size.width / 2.4, -size.width/1.875),
       Offset(300, size.height / 1.12),
     );
 
@@ -213,4 +220,21 @@ class CustomToolbarShape extends CustomPainter {
   bool shouldRepaint(CustomPainter oldDelegate) {
     return true;
   }
+}
+class BottomWaveClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    var path = Path();
+    /*Rectangle*/
+    path.moveTo(-300, 0);
+    path.quadraticBezierTo(
+        size.width/2, size.height*2, size.width+300, 0);
+
+    path.close();
+
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => true;
 }
