@@ -153,16 +153,16 @@ class SearchScreenState extends State<SearchScreen> {
                   )),
               Expanded(
                   child: Hero(
-                    tag:"furniture_item",
-                    child: ListView(
-                        padding: EdgeInsets.symmetric(horizontal: 5),
-                        scrollDirection: Axis.vertical,
-                        children: <Widget>[
-                          productItem(context, "assets/chair4.png"),
-                          productItem(context, "assets/chair2.png"),
-                          productItem(context, "assets/chair3.png"),
-                        ]),
-                  ))
+                tag: "furniture_item",
+                child: ListView(
+                    padding: EdgeInsets.symmetric(horizontal: 5),
+                    scrollDirection: Axis.vertical,
+                    children: <Widget>[
+                      productItem(context, "assets/chair4.png"),
+                      productItem(context, "assets/chair2.png"),
+                      productItem(context, "assets/chair3.png"),
+                    ]),
+              ))
             ],
           )),
       /* add child content here */
@@ -195,8 +195,8 @@ class SearchScreenState extends State<SearchScreen> {
                           Expanded(
                             flex: 1,
                             child: Container(
-                              //            color: Colors.red,
-                            ),
+                                //            color: Colors.red,
+                                ),
                           ),
                           Expanded(
                             flex: 2,
@@ -214,8 +214,8 @@ class SearchScreenState extends State<SearchScreen> {
                                         style: TextStyle(
                                             fontFamily: 'Avenir',
                                             fontSize: MediaQuery.of(context)
-                                                .size
-                                                .height /
+                                                    .size
+                                                    .height /
                                                 51,
                                             fontWeight: FontWeight.bold)),
                                   ),
@@ -228,8 +228,8 @@ class SearchScreenState extends State<SearchScreen> {
                                           color: Colors.black26,
                                           fontFamily: 'Avenir',
                                           fontSize: MediaQuery.of(context)
-                                              .size
-                                              .height /
+                                                  .size
+                                                  .height /
                                               56,
                                         )),
                                   ),
@@ -241,8 +241,8 @@ class SearchScreenState extends State<SearchScreen> {
                                         style: TextStyle(
                                             fontFamily: 'Avenir',
                                             fontSize: MediaQuery.of(context)
-                                                .size
-                                                .height /
+                                                    .size
+                                                    .height /
                                                 52,
                                             fontWeight: FontWeight.bold,
                                             color: Colors.black26)),

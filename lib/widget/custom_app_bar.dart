@@ -226,9 +226,9 @@ class BottomWaveClipper extends CustomClipper<Path> {
   Path getClip(Size size) {
     var path = Path();
     /*Rectangle*/
-    path.moveTo(-300, 0);
+    path.moveTo(-size.width/1.6, 0);
     path.quadraticBezierTo(
-        size.width/2, size.height*2, size.width+300, 0);
+        size.width/2, size.height*2, size.width+size.width/1.6, 0);
 
     path.close();
 

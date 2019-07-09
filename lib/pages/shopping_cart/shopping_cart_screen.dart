@@ -369,6 +369,8 @@ class ShoppingCartState extends State<ShoppingCartScreen> {
                                       margin: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height/27,horizontal: MediaQuery.of(context).size.width/20),
                                       height: MediaQuery.of(context).size.height/20,
                                       child: MaterialButton(
+                                          color: Color.fromRGBO(208,
+                                              2, 27, 1),
                                         disabledColor: Color.fromRGBO(208,
                                             2, 27, 1),
                                         shape: RoundedRectangleBorder(
@@ -383,7 +385,7 @@ class ShoppingCartState extends State<ShoppingCartScreen> {
                                             fontSize: MediaQuery.of(context).size.height / 40,
                                           ),
                                         ),
-                                        onPressed: null,
+                                        onPressed:() => Navigator.pushNamed(context, "/checkout"),
                                       ),
                                     ),
                                   ),

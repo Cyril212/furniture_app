@@ -21,16 +21,12 @@ class FurnitureDetailScreenState extends State<FurnitureDetailScreen> {
             width: MediaQuery.of(context).size.width / 3.5,
             height: MediaQuery.of(context).size.width / 6.5,
             child: MaterialButton(
-              shape:
-                  OutlineInputBorder(
-                      borderSide: BorderSide(color: Color.fromRGBO(208,
-                          2, 27, 1))
-                  ),
+              shape: OutlineInputBorder(
+                  borderSide: BorderSide(color: Color.fromRGBO(208, 2, 27, 1))),
               onPressed: null,
               child: Icon(
                 Icons.favorite_border,
-                color: Color.fromRGBO(208,
-                    2, 27, 1),
+                color: Color.fromRGBO(208, 2, 27, 1),
                 size: 22.5,
               ),
             ),
@@ -40,8 +36,7 @@ class FurnitureDetailScreenState extends State<FurnitureDetailScreen> {
             width: MediaQuery.of(context).size.width / 1.4,
             height: MediaQuery.of(context).size.width / 6.5,
             child: MaterialButton(
-              disabledColor: Color.fromRGBO(208,
-    2, 27, 1),
+              disabledColor: Color.fromRGBO(208, 2, 27, 1),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)),
               child: Text(
@@ -113,8 +108,7 @@ class FurnitureDetailScreenState extends State<FurnitureDetailScreen> {
                               child: Container(
                             width: MediaQuery.of(context).size.width / 8,
                             height: MediaQuery.of(context).size.width / 8,
-                            color: Color.fromRGBO(208,
-                                2, 27, 1),
+                            color: Color.fromRGBO(208, 2, 27, 1),
                           ))),
                       Container(
                           padding: EdgeInsets.only(
@@ -123,8 +117,7 @@ class FurnitureDetailScreenState extends State<FurnitureDetailScreen> {
                               child: Container(
                             width: MediaQuery.of(context).size.width / 8,
                             height: MediaQuery.of(context).size.width / 8,
-                            color: Color.fromRGBO(208,
-                                2, 27, 1),
+                            color: Color.fromRGBO(208, 2, 27, 1),
                           ))),
                       Container(
                           padding: EdgeInsets.only(
@@ -133,8 +126,7 @@ class FurnitureDetailScreenState extends State<FurnitureDetailScreen> {
                               child: Container(
                             width: MediaQuery.of(context).size.width / 8,
                             height: MediaQuery.of(context).size.width / 8,
-                            color: Color.fromRGBO(208,
-                                2, 27, 1),
+                            color: Color.fromRGBO(208, 2, 27, 1),
                           ))),
                       Container(
                           padding: EdgeInsets.only(
@@ -143,8 +135,7 @@ class FurnitureDetailScreenState extends State<FurnitureDetailScreen> {
                               child: Container(
                             width: MediaQuery.of(context).size.width / 8,
                             height: MediaQuery.of(context).size.width / 8,
-                            color: Color.fromRGBO(208,
-                                2, 27, 1),
+                            color: Color.fromRGBO(208, 2, 27, 1),
                           ))),
                     ],
                   );
@@ -154,8 +145,7 @@ class FurnitureDetailScreenState extends State<FurnitureDetailScreen> {
                     alignment: Alignment(0.0, densityDependentAlign()),
                     builder: DotSwiperPaginationBuilder(
                         size: MediaQuery.of(context).size.width / 38.5,
-                        activeColor: Color.fromRGBO(208,
-                            2, 27, 1),
+                        activeColor: Color.fromRGBO(208, 2, 27, 1),
                         color: Colors.black12)),
               )),
           Container(
@@ -165,9 +155,7 @@ class FurnitureDetailScreenState extends State<FurnitureDetailScreen> {
                 color: Colors.black38,
               )),
           Expanded(
-            child: ListView(
-                shrinkWrap: true,
-                children: <Widget>[
+            child: ListView(shrinkWrap: true, children: <Widget>[
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 22),
                 margin: EdgeInsets.only(
