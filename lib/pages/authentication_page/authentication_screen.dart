@@ -76,6 +76,7 @@ class AuthenticationScreenState extends State<AuthenticationScreen>
                                 BorderSide(color: Colors.white, width: 2)),
                         child: Text(
                           'SIGN UP',
+                          key: Key("SIGN_UP"),
                           style: TextStyle(color: Colors.white),
                         ),
                         onPressed: () {
@@ -100,6 +101,7 @@ class AuthenticationScreenState extends State<AuthenticationScreen>
                                 color: Color.fromRGBO(208, 2, 27, 1))),
                         child: Text(
                           'LOGIN',
+                          key: Key("LOGIN"),
                           style: TextStyle(color: Colors.white),
                         ),
                         onPressed: () {

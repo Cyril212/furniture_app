@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "890120378702",
+    "firebase_url": "https://furniture-app-57335.firebaseio.com",
+    "project_id": "furniture-app-57335",
+    "storage_bucket": "furniture-app-57335.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890120378702:android:f0e5351adc6b2a7084e61f",
+        "android_client_info": {
+          "package_name": "com.nyxfinity.furniture_app.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "890120378702-5jdlrofaeahqis4okbsgl805c6q4vvaa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBilp78Uu3sxyueVqul2VDNXLFVQ-pWS7w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "890120378702-5jdlrofaeahqis4okbsgl805c6q4vvaa.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "890120378702-5u1eo7bv3h4s50bktiltmjhl2m2vuh7f.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.nyxfinity.furnitureApp.prod"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

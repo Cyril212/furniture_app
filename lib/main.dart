@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_app/pages/authentication_page/authentication_screen.dart';
 import 'package:furniture_app/pages/checkout_page/checkout_screen.dart';
@@ -10,7 +11,8 @@ import 'package:furniture_app/pages/onboarding_page/onboarding_screen.dart';
 import 'package:furniture_app/pages/search_page/search_screen.dart';
 import 'package:furniture_app/pages/shopping_cart/shopping_cart_screen.dart';
 import 'package:furniture_app/pages/sign_up_page/sign_up_screen.dart';
-
+import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 var routes = <String, WidgetBuilder>{
   "/authentication": (BuildContext context) => AuthenticationScreen(),
   "/sign_up": (BuildContext context) => SignUpScreen(),
@@ -27,6 +29,10 @@ var routes = <String, WidgetBuilder>{
 
 void main() {
   runApp(MaterialApp(
+    localizationsDelegates: [
+      GlobalMaterialLocalizations.delegate,
+      GlobalWidgetsLocalizations.delegate,
+    ],
       theme: ThemeData(primaryColor: Color.fromRGBO(58, 66, 86, 1.0)),
       debugShowCheckedModeBanner: false,
       home: AuthenticationScreen(),

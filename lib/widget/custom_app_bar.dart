@@ -104,7 +104,7 @@ class CustomAppBar extends SliverPersistentHeaderDelegate {
 
   @override
   bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) {
-    return true;
+    return false;
   }
 }
 

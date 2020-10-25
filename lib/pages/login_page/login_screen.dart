@@ -112,6 +112,7 @@ class LoginScreenState extends State<LoginScreen> {
                                 Navigator.pushNamed(context, "/forgot_pass");
                               },child:Text(
                             "Forgot your password?",
+                            key: Key("forgotPassword"),
                             style:
                                 TextStyle(fontFamily: 'Avenir', fontSize: MediaQuery.of(context).size.height/40),
                           ))))),

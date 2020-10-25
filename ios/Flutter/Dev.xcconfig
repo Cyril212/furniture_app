@@ -1,0 +1,14 @@
+//
+//  Dev.xcconfig
+//  Runner
+//
+//  Created by Kirill on 25/10/2020.
+//  Copyright © 2020 The Chromium Authors. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+#include "Generated.xcconfig"
+BUNDLE_NAME=Intent
+APP_NAME=furniture dev
+
