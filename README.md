@@ -1,3 +1,3 @@
 # furniture_app
 
-Simple application built to learn FLutter's declarative UI.
+Simple application built to learn Flutter's declarative UI.
